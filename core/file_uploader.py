@@ -27,7 +27,7 @@ def mostrar_uploader():
         with col2:
             if st.button("Siguiente", key="next_button"):
                 st.session_state.show_dataframe = True
-                st.experimental_rerun()
+                st.rerun()
     else:
         st.markdown(
             '<p style="font-size:24px; color:red;">DEBEN SER CARGADOS LOS 4 ARCHIVOS PARA EL TABLERO, DE LO CONTRARIO NO ES POSIBLE CONTINUAR.</p>',
