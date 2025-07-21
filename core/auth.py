@@ -33,6 +33,6 @@ def login_interface():
     if st.button("Iniciar sesión"):
         if credenciales(username, password):
             st.session_state['authenticated'] = True
-            st.experimental_rerun()
+            st.rerun()
         else:
             st.error("Nombre de usuario o contraseña incorrectos")
