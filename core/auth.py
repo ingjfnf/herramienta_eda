@@ -1,12 +1,12 @@
 import streamlit as st
 
 def credenciales(username, password):
-    users = {
-        "CO1088260844": "MB0844",
-        "CO1088282417": "DP2417",
-        "CO1013629717": "JN9717"
-    }
-    return username in users and users[username] == password
+    try:
+        users = st.secrets["users"]
+        return username in users and users[username] == password
+    except Exception as e:
+        st.error("No se pudieron cargar las credenciales.")
+        return False
 
 def login_interface():
     st.markdown(
@@ -24,6 +24,7 @@ def login_interface():
         """,
         unsafe_allow_html=True,
     )
+
     st.markdown('<div class="customizado-container">', unsafe_allow_html=True)
     username = st.text_input("Nombre de usuario")
     password = st.text_input("Contraseña", type="password")
